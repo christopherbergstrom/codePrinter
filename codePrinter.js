@@ -1,6 +1,7 @@
 // window.onload = function(){console.log("loaded")};
-window.onload = function(){codePrinter};
+window.onload = function(){codePrinter()};
 var i = 0;
+var speed = 50;
 var text = `<!doctype html>
 <html lang="en">
   <head>
@@ -101,13 +102,14 @@ var text = `<!doctype html>
   </body>
 </html>
 `;
-var speed = 50;
-
 function codePrinter() 
 {
   if (i < text.length) 
   {
-    document.getElementById("printHEre").innerHTML += text.charAt(i);
+      document.getElementById("printHere").innerHTML += text.charAt(i);
+      if (text.charAt(i) === ">")
+      document.getElementById("printHere").innerHTML += "<br>";
+
     i++;
     setTimeout(codePrinter, speed);
   }
